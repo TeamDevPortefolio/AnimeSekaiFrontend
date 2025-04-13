@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$desktop-l:1440px;
+$desktop:1220px;
+$tablet-h:1024px;
+$tablet-v:720px;
+$mobile:650px;
+$mobile-m:480px;
+$mobile-s:320px;
+
+$secondaryColor:#8685EF;
+$green:#00C896;
+$colorgood:#27ae60;
+$colorNormal: #f1c40f;
+$colorBad:#e74c3c;
+$purpleBlack:#201F2D;
+$blackCharcoal:#3D3F43;
+$blackpurple:#211F42;
+
+
+//font familly
+$shareTech:"Share Tech Mono", monospace;
+$oswald:"Oswald", sans-serif;
+$ubuntu:"Ubuntu", sans-serif;

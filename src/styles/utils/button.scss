@@ -1,0 +1,44 @@
+// Variables
+$primary-color: blue;
+$secondary-color: green;
+$danger-color: red;
+$button-padding: 10px 15px;
+$border-radius: 5px;
+
+// Mixin pour le style de base des boutons
+@mixin button-style($color,$border,$radius) {
+  padding: $button-padding;
+  border-radius: $border-radius;
+  padding: 10px;
+  border: $border;
+  color: white;
+  background-color: $color;
+  border-width: 2px;
+  border-radius: $radius;
+  font-family: $ubuntu;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($color, 10%);
+  }
+}
+
+// Styles spécifiques des boutons
+.button-primary {
+  @include button-style($primary-color,none,0);
+}
+
+.button-secondary {
+  @include button-style($secondaryColor,none,0);
+}
+
+.button-danger {
+  @include button-style($danger-color,none,0px);
+}
+.button-outline{
+    @include button-style(transparent, 1px solid $secondaryColor,15px )
+}
+.button-rounded{
+    @include button-style($secondaryColor, 1px solid $secondaryColor,15px )
+}

@@ -1,0 +1,83 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+
+  
+    border-radius: 5px;
+    background-color: #201F2D;
+    height: 300px;
+   
+    margin-bottom: 20px;
+    justify-content: space-between;
+
+
+    h4 {
+        color: #fff;
+        font-size: 25px;
+        margin-bottom: 10px;
+        font-family: "Oswald", sans-serif;
+        font-weight: 500;
+        margin-left: 15px;
+    }
+
+    &__item {
+        width: calc(50% - 8px);
+    }
+
+    &__content {
+        position: relative;
+        padding: 15px 15px 0px 15px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        input {
+            background-color: transparent;
+            border: 1px solid #8685EF;
+            border-radius: 5px;
+        }
+    }
+&__menu{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top:30px;
+    background-color: black;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+&__selected{
+    display: flex;
+    width: calc(50% - 12px);
+    margin-bottom: 10px;
+    align-items: center;
+    label{
+        margin-left: 10px;
+    }
+    input{
+        width: 15px;
+        height: 15px;
+    }
+}
+
+    &__dropdown {
+        padding: 3px;
+        display: block;
+        border-radius: 5px;
+        background-color: #242330;
+        margin-bottom: 10px;
+        text-align: center;
+        box-shadow: 5px 8px 13px 0px rgba(0, 0, 0, 0.16);
+        color: #fff
+    }
+
+    .btn {
+        background-color: #8685EF;
+        display: flex;
+        justify-content: center;
+        border-radius: 0 0 15px 15px;
+        padding: 15px 0;
+    }
+}
