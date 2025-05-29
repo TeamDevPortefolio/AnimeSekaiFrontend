@@ -34,7 +34,7 @@ export default function WatchFrame({ episodes }: Props) {
 
                                 episodesList.map((item, index) => (
 
-                                    <option key={index}> {item.title}</option>
+                                    <option key={index}> {item.nb_episode}</option>
                                 )
 
 

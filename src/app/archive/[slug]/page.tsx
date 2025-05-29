@@ -1,27 +1,25 @@
 import { Anime } from '@/types/anime'
 import React from 'react'
 import Image from 'next/image'
-interface AnimeProps {
-  params: {
-    slug: String
-  }
 
-}
+
+
+
 interface AnimeData {
   data: Anime[]
 }
 
-export default async function AnimePage({ params }: AnimeProps) {
+export default async function AnimePage({ params }: { params: { slug: string } }) {
   const { slug } = params
 
-  async function getData(): Promise<AnimeData> {
+  async function getData(): Promise<{data:Anime[]}> {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/animes?filters[name][$eq]=${slug}&populate=*`, {
       headers: { 'Authorization': `Bearer ${process.env.TOKEN_API}  ` }
     })
     await new Promise((resolve => setTimeout(resolve, 4000)))
     return res.json();
   }
-  let res = await getData();
+  const res = await getData();
   const anime = res.data[0]
   console.log(anime)
   const userIp = await fetch("https://api64.ipify.org?format=json").then(res => res.json());

@@ -15,6 +15,7 @@ interface PopUpProps {
 const [visible,isVisible ] = useState(props.hidden)
 const [anime,setAnime] = useState<Anime>()
 const[uuid,setUuid]  = useState<string>('')
+const[mute , ismute] = useState<Boolean>(false)
 useEffect(()=>{
 
 
@@ -37,6 +38,12 @@ setAnime(anime)
 
 }
 }));
+
+const handleMute=()=>{
+  if(audioRef.current)
+    audioRef.current.pause();
+  ismute(!mute);
+}
 const handlerClose=()=>{
 isVisible(false)
 
@@ -54,13 +61,15 @@ if(visible){
     
     <div 
     >
-  
+
     <div className={`popup ${visible? 'visible':''}`} onClick={()=>handlerClose()}>
     <audio ref={audioRef} controls>
                         <source src={`${process.env.NEXT_PUBLIC_API_URL}${anime?.musique.url}`} type="audio/mpeg" />
                     </audio>
       <div className='popup__content'>
         <div className='popup__close' onClick={()=>handlerClose()}> <i className="fa-solid fa-x" style={{color:'#000'}} aria-hidden='true' ></i></div>
+        <span className="popup__mute" onClick={()=>handleMute()}>Filter <i className={`${!ismute ?'fa fa-volume-off':" fa fa-volume-up"}`} aria-hidden="true">
+        </i></span>
         <div className='popup__title'>
           <Image alt='image_pop_up' src={`${process.env.NEXT_PUBLIC_API_URL}${anime?.imgTitle.url}`} width={500} height={500} />
         </div>

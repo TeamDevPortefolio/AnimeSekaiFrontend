@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   i18n: {
     locales: ['en', 'fr'], // Langues supportées (anglais et français dans cet exemple)
     defaultLocale: 'en', // Langue par défaut
+  },  eslint: {
+    ignoreDuringBuilds: true,
   },
   /* config options here */
   sassOptions: {

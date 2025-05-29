@@ -74,6 +74,10 @@ padding-bottom: 50px;
             font-weight: 600;
         }
     }
+    &__mute{
+        position: absolute;
+        z-index: 10;
+    }
 &__close{
     display: flex;
     justify-content: center;

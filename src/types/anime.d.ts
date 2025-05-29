@@ -1,7 +1,7 @@
 
 
 export interface Anime {
-id:Number,
+id:number,
 documentId:string,
 name:sting,
 description:string,
@@ -16,25 +16,28 @@ imgTitle:Media
 video:Media,
 banner:Media
 slug:string
+
 }
 
 export interface Episode{
-id:Number,
+id:number,
 documentId:string,
-season:Number,
-nb_episode:Number,
+season:number,
+nb_episode:number,
 release_date:Date,
 videos:Video[]
-
+airTime:string,
+airDate:string
+anime:Anime
 }
 export interface Media{
-    url: String
+    url: string
 }
 
 export interface Video{
-    id:Number,
-    documentId:String,
-    langues:String,
-    URL:String,
+    id:number,
+    documentId:string,
+    langues:string,
+    URL:string,
     publishedAt:Date
 }

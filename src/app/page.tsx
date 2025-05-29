@@ -1,16 +1,15 @@
 import Image from "next/image";
 import HeroComponent from "@/components/Home/Hero";
-import example from '../../public/img/tokyo-thumb.jpeg'
 import Recommend from "@/components/Home/Recommend";
 import LastRealese from "@/components/Home/LastRelease";
 import Schedule from "@/components/Home/Schedule";
-import PopUp from "@/components/Home/PopUp";
+// import PopUp from "@/components/Home/PopUp";
 import Filter from "@/components/Home/Filter";
 import { Anime } from "@/types/anime";
-import { GetServerSideProps } from "next";
+// import { GetServerSideProps } from "next";
 
 interface Media {
-  url: String
+  url: string
 }
 interface CTA{
   text:string
@@ -19,12 +18,12 @@ interface CTA{
 
 interface Hero {
   id: number,
-  headline: String,
-  subHeadline: String,
-  description: String,
+  headline: string,
+  subHeadline: string,
+  description: string,
   picture: Media,
   anime: Anime
-  categories: String,
+  categories: string,
   cta:CTA
 
 }
@@ -63,12 +62,12 @@ export default async function Home() {
   console.log('recomment', Recommends[0].anime)
 
   let animes
-  animes = Recommends.map((items, index) => {
+  animes = Recommends.map((items) => {
 
 
     return items.anime
   })
-  console.log('anime', animes)
+
   return (
     <div className="container home">
 
