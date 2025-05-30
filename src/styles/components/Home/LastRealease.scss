@@ -1,6 +1,9 @@
 .last_release {
     height: 500px;
-
+&__content{
+    display: flex;
+  flex-wrap: wrap;
+}
     h4 {
         text-align: center;
         

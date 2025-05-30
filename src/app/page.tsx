@@ -31,10 +31,14 @@ interface Recommends {
   anime: Anime
 
 }
+interface LastAnime{
+  anime: Anime
+}
 interface HomeRespose {
   data: {
     Hero: Hero,
-    Recommends: Recommends[]
+    Recommends: Recommends[],
+    lastRelease:LastAnime[]
   }
 }
 
@@ -45,7 +49,7 @@ interface HomeRespose {
 
 export default async function Home() {
   async function getData(): Promise<HomeRespose> {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/home-page?populate[Hero][populate][anime][populate]=*&populate[Hero][populate]=picture&populate[Recommends][populate][anime][populate]=*`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/home-page?populate[Hero][populate][anime][populate]=*&populate[Hero][populate]=picture&populate[Recommends][populate][anime][populate]=*&populate[lastRelease][populate][anime][populate]=*`, {
       headers: { 'Authorization': `Bearer ${process.env.TOKEN_API}  ` },
       cache: "no-store", // Empêche le cache si besoin
     })
@@ -54,12 +58,12 @@ export default async function Home() {
   }
 
   let res = await getData();
-  const { Hero, Recommends } = res.data;
+  const { Hero, Recommends,lastRelease} = res.data;
   // function extractAnimes(recommends: Recommends[]): Recommends["anime"][] {
   //   return recommends.map((recommend) => recommend.anime);
   // }
 
-  console.log('recomment', Recommends[0].anime)
+  console.log('recomment', lastRelease[0].anime)
 
   let animes
   animes = Recommends.map((items) => {
@@ -67,6 +71,13 @@ export default async function Home() {
 
     return items.anime
   })
+  let lastAnimes
+  lastAnimes = lastRelease.map((items) => {
+
+
+    return items.anime
+  })
+  
 
   return (
     <div className="container home">
@@ -76,8 +87,8 @@ export default async function Home() {
 
 
         <Recommend anime={animes} />
-
-        <LastRealese />
+       
+        <LastRealese animes={lastAnimes} />
 
         <section className="watching" style={{ height: 500 }}>
           <h4>Continue Là Où Tu T’es Arrêté"</h4>

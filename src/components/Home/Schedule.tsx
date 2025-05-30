@@ -16,7 +16,7 @@ export default function Schedule() {
     const dates = getnextdays();
     const [airDate, setAirDate] = useState<Episode[] | undefined>()
 
-const slideRef = useRef<(HTMLElement|null)[]>([])
+const slideRef = useRef<(HTMLDivElement|null)[]>([])
 
 
     async function handleAirdate(weekday: any, day: any) {
@@ -30,7 +30,7 @@ const slideRef = useRef<(HTMLElement|null)[]>([])
         })
 
         if (!res.ok) {
-            throw new Error(`Response status jh: ${res.status}`);
+            throw new Error(`Response status: ${res.status}`);
 
         }
 
@@ -41,7 +41,17 @@ const slideRef = useRef<(HTMLElement|null)[]>([])
     }
 
 
+const handleClick=(indexClicked:number)=>{
+    debugger;
 
+    slideRef.current.forEach((el,index)=>{
+        if (el) {
+            el.style.backgroundColor = index === indexClicked ?"#8685EF": '#363453'
+          }
+    })
+
+
+}
     useEffect(() => {
         handleAirdate(todays,29)
 
@@ -84,7 +94,7 @@ const slideRef = useRef<(HTMLElement|null)[]>([])
                 >
                     {dates.map((day, index) => (
                         <SwiperSlide key={index} onClick={() => handleAirdate(day.weekday, day.days)}>
-                            <div className='schedule__card' style={todays === day.weekday ? { backgroundColor: "green" } : {}} ref={(el)=>{(slideRef.current[index]=el)}} >
+                            <div className='schedule__card' style={todays === day.weekday ? { backgroundColor: "green" } : {}} ref={(el)=>{(slideRef.current[index]=el)}} onClick={()=>handleClick(index)} >
                                 <h3>{day.weekday}</h3>
                                 <span> {day.days}</span>
                             </div>
@@ -102,11 +112,6 @@ const slideRef = useRef<(HTMLElement|null)[]>([])
                     <a href='#'>Episode {episode.nb_episode}<i className='fa fa-play' aria-hidden="true"></i></a>
                 </div>))}
 
-                <div className='schedule__cell'>
-                    <div>
-                        <span>9H00</span> <span>DEMON SLAYER</span>
-                    </div>
-                </div>
 
 
 
