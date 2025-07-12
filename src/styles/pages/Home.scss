@@ -2,10 +2,11 @@
     // outline: 4px solid red;
 
     position: relative;
-
+display: flex;
+justify-content: space-between;
     &__left {
         width: calc(100% - 355px);
-        float: left;
+   
 
         @media(max-width: $tablet-h) {
             float: none;
@@ -16,7 +17,7 @@
 
     &__right {
         width: 330px;
-        float: right;
+      
 
         @media(max-width: $tablet-h) {
             float: none;
@@ -191,6 +192,7 @@
         background-color: #211F42;
         width: 100%;
         padding: 20px 15px;
+        margin-bottom: 50px;
         h2{
             font-size: 32px;
             margin-bottom: 50px;
@@ -215,7 +217,11 @@
             }
             a{
                 padding: 2px 5px;
-            background-color: #2D2D32;
+                background-color: #2D2D32;
+                border-radius: 5px;
+                span{
+                    margin-right: 10px;
+                }
         }
         }
     }

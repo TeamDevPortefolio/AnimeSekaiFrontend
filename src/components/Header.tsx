@@ -9,7 +9,9 @@ export default function Header() {
         <div className="nav_bar">
 
             <div className="nav_bar__brand">
+                <a href="/">
                 <Image alt="image" src='http://localhost:1337/uploads/logo_white_e55a4a19b4.svg' width={50} height={25} />
+                </a>
             </div>
 
             <div className="nav_bar__menu">

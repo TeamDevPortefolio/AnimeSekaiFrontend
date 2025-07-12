@@ -41,3 +41,11 @@ export interface Video{
     URL:string,
     publishedAt:Date
 }
+export interface ViewType{
+    id:number,
+    period:string,
+    view:object,
+    anime:Anime,
+
+
+}

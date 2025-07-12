@@ -109,7 +109,7 @@ const handleClick=(indexClicked:number)=>{
             <div className='schedule__calendar'>
                 {airDate?.map((episode, index) => (<div className='schedule__cell' key={index}>
                     <div>{episode.airTime.slice(0, 5)}  <span></span> <span>{episode.anime.name}</span></div>
-                    <a href='#'>Episode {episode.nb_episode}<i className='fa fa-play' aria-hidden="true"></i></a>
+                    <a href='#'> <span>Episode {episode.nb_episode}</span><i className='fa fa-play' aria-hidden="true"></i></a>
                 </div>))}
 
 

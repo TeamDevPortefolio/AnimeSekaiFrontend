@@ -44,15 +44,15 @@ export default function LastRealese({ animes }: LastAnime) {
     const list = animes.map((item, index) => (
 
         <a href='#' className='card_anime' key={index}>
-            <Image className='card_anime__title' alt='image' src={`${process.env.NEXT_PUBLIC_API_URL}${item.imgTitle.url}`} width={100} height={50} />
-            <Image className='card_anime__image' alt='uue' src={`${process.env.NEXT_PUBLIC_API_URL}${item.thumbnail.url}`} width={240} height={150} draggable="false" />
+           {item.imgTitle?.url && <Image className='card_anime__title' alt='image' src={`${process.env.NEXT_PUBLIC_API_URL}${item.imgTitle.url}`} width={100} height={50} />}
+           {item.thumbnail?.url &&<Image className='card_anime__image' alt='uue' src={`${process.env.NEXT_PUBLIC_API_URL}${item.thumbnail.url}`} width={240} height={150} draggable="false" />} 
             <span> {item.name} </span>
         </a>
 
     ))
     return (
         <section className='last_release' id='last-release'>
-            <h4>Les Dernières Sorties Anime</h4>
+            <h4>Les Dernières Mise a jour</h4>
             <h5>Ne manque rien de la saison ! Nouveaux épisodes, dernières séries et tout ce qu’il te faut pour rester à jour.</h5>
 
      

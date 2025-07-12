@@ -6,6 +6,8 @@ import Schedule from "@/components/Home/Schedule";
 // import PopUp from "@/components/Home/PopUp";
 import Filter from "@/components/Home/Filter";
 import { Anime } from "@/types/anime";
+import { useEffect } from "react";
+import AnimeView from "@/components/Home/AnimeView";
 // import { GetServerSideProps } from "next";
 
 interface Media {
@@ -90,7 +92,7 @@ export default async function Home() {
        
         <LastRealese animes={lastAnimes} />
 
-        <section className="watching" style={{ height: 500 }}>
+        {/* <section className="watching" style={{ height: 500 }}>
           <h4>Continue Là Où Tu T’es Arrêté"</h4>
           <h5>Retrouve facilement tes derniers visionnements et replonge instantanément dans l’action</h5>
           <div className="watching__content">
@@ -110,55 +112,14 @@ export default async function Home() {
               <span></span>
             </a>
           </div>
-        </section>
-        <Schedule />
+        </section> */}
+       
       </div>
       <div className="home__right">
 
  <Filter/>
-
-        <div className="weekly">
-
-          <div className="weekly__top">
-            <div className="weekly__day">
-              Days
-            </div>
-            <div className="weekly__day">
-              Week
-            </div>
-            <div className="weekly__day">
-              Mouth
-            </div>
-
-          </div>
-          <div className="weekly__content">
-
-            <div className="weekly__img_wrap">
-              <Image src="http://localhost:1337/uploads/DALL_E_2024_10_22_21_18_52_An_anime_character_standing_in_a_13d47301d4.png" alt="main anime at this moment" width={296} height={196} />
-              <div className="weekly__img_text">
-                <span> 1</span>
-                <h4>The new hero of grave</h4>
-              </div>
-            </div>
-            <div className="weekly__cards">
-
-
-              <div className="weekly__card">
-                <span className="weekly__number"> 1</span>
-                <Image src='http://localhost:1337/uploads/tokyo_reverger_c9ae4afe81.png' width={40} height={40} alt="Photo card" />
-                <div className="weekly__card_content">
-                  <h4>Tokyo revenger season 2</h4>
-                  <div className="weekly__view">
-                    <span><i className="fa-solid fa-eye" aria-hidden="true"></i>10,000</span>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
+ <AnimeView/>
+   
 
         <section className="recently">
     
