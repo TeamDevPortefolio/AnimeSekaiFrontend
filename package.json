@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.10",
     "anime-sekai2025": "file:",
     "gsap": "^3.12.5",
     "next": "15.0.3",

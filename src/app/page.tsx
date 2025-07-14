@@ -9,7 +9,9 @@ import { Anime } from "@/types/anime";
 import { useEffect } from "react";
 import AnimeView from "@/components/Home/AnimeView";
 // import { GetServerSideProps } from "next";
-
+import { Suspense } from "react";
+import { HeroSkeleton } from "./ui/Skeleton"
+import { fetchHero } from "./query/data";
 interface Media {
   url: string
 }
@@ -46,7 +48,9 @@ interface HomeRespose {
 
 
   // Simuler un délai de 4 secondes (optionnel)
-
+  function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
 
 export default async function Home() {
@@ -60,12 +64,12 @@ export default async function Home() {
   }
 
   let res = await getData();
-  const { Hero, Recommends,lastRelease} = res.data;
+  const {Recommends,lastRelease} = res.data;
   // function extractAnimes(recommends: Recommends[]): Recommends["anime"][] {
   //   return recommends.map((recommend) => recommend.anime);
   // }
-
-  console.log('recomment', lastRelease[0].anime)
+const Hero = await fetchHero()
+  console.log('dataTest')
 
   let animes
   animes = Recommends.map((items) => {
@@ -79,14 +83,15 @@ export default async function Home() {
 
     return items.anime
   })
-  
+
 
   return (
     <div className="container home">
 
       <div className="home__left">
+        <Suspense fallback={<HeroSkeleton/>}>
         <HeroComponent headline={Hero.headline} picture={Hero.picture} description={Hero.description} Anime={Hero.anime} subHeadline={Hero.subHeadline} cta={Hero.cta} />
-
+        </Suspense>
 
         <Recommend anime={animes} />
        
@@ -118,10 +123,9 @@ export default async function Home() {
       <div className="home__right">
 
  <Filter/>
- <AnimeView/>
    
 
-        <section className="recently">
+        <section className="recently mb-5">
     
           <div className="recently__top">
 
@@ -151,8 +155,9 @@ export default async function Home() {
               </div>
             </div>
           </div>
-
-        </section>
+       
+        </section>   
+        <AnimeView/>
       </div>
     </div>
   );

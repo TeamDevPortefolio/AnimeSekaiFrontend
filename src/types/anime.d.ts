@@ -1,5 +1,26 @@
 
 
+
+
+
+interface Media {
+    url: string
+  }
+  interface CTA{
+    text:string
+    url:string
+  }
+export interface Hero { 
+ 
+    headline:String,
+    subHeadline:String,
+    description:String,
+    picture: Picture,
+    Anime:Anime 
+    cta:CTA
+}
+
+
 export interface Anime {
 id:number,
 documentId:string,

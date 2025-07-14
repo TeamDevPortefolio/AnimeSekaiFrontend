@@ -4,7 +4,7 @@ import Image from 'next/image'
 import img from '../../public/img/rengoku.webp'
 import gif from '../../../public/img/demon-slayer-gif-converter.gif';
 import star from '../../../public/img/Star.png';
-
+import { fetchHero } from '@/app/query/data';
 
 interface Picture{
     url:String

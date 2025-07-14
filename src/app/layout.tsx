@@ -28,12 +28,12 @@ export default function RootLayout({
 
             >
 
-              <Suspense fallback={<div> loading ...</div>}>
+           
               <Header/>
                 {children}
                 
                 <Footer/>
-              </Suspense>
+              
               
             </body>
           </html>
